@@ -14,9 +14,6 @@ export default function ({ searchQuery }) {
   // console.log(data)
   const [itemData, setItemData] = useState(data);
 
-//   setItemData({
-//     ...data
-//   })
   const onDragEnd = (event) => {
     // console.log('onDragEnd', event)
     const { active, over } = event;
@@ -29,27 +26,31 @@ export default function ({ searchQuery }) {
       return arrayMove(itemData, dragedIndex, currentIndex);
     });
   };
-  if(searchQuery != "" && !itemData.map((item) =>
-   item.name.toLocaleLowerCase().includes(
-    searchQuery.toLocaleLowerCase().trim()))) {
-        return null;
-    }
-  
-  
 
-//   if (
-//       searchQuery != "" &&
-//       !itemData.map((item) =>
-//       item.name.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase().trim())
-//     )) {
-//       return null;
+  const itemNames = itemData.map((item) => item.name);
+
+//   if(searchQuery != "" && !itemNames.toLocaleString().includes(
+//     searchQuery.toLocaleLowerCase().trim())) {
+//         return null;
 //     }
 
-  //           console.log("Search Query:", searchQuerry);
-//   const filteredItems = itemData.some((item) =>
-//     item.name.toLowerCase().includes(searchQuery.toLowerCase().trim())
-//   );
-//   console.log("Filtered Items:", filteredItems);
+if (searchQuery !== "") {
+    const lowerCaseSearchQuery = searchQuery.toLocaleLowerCase().trim();
+    console.log('Lowercase Search Query:', lowerCaseSearchQuery); // Debugging statement
+    const matchingItems = itemNames.filter((itemName) =>
+      itemName.toLocaleLowerCase().includes(lowerCaseSearchQuery)
+    );
+  
+    console.log('Matching Items:', matchingItems); // Debugging statement
+  
+    if (matchingItems.length === 0) {
+      return null; // No matching items found
+    }
+    
+    return matchingItems; // Return the matching items
+  } 
+
+
 
   return (
     <div className=" py-[98px] px-[90px]">
