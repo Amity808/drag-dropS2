@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import CardList from '../components/CardList'
-import SearchBar from '../components/Search'
 import { useAuthContext } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { Suspense } from 'react'
@@ -20,17 +19,19 @@ const Home = () => {
     if(user == null ) navigate("/signin")
   }, [user])
   
-    const handleSearch = (query) => {
-        setSearchQuery(query)
-    }
+    // const handleSearch = (query) => {
+    //     setSearchQuery(query)
+    // }
 
   return (
     <>
       <Suspense fallback={<Loading />}>
 
         <NavBar />
-        <SearchBar onSearch={handleSearch} />
-        <CardList searchQuery={searchQuery} />
+
+        
+        {/* <SearchBar /> */}
+        <CardList />
       </Suspense>
     </>
   )

@@ -18,15 +18,10 @@ const Card = ({ item }) => {
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
         <div>
-            <img src={item.image} width={200} height={200} />
+            <img src={item.urls.full} width={200} height={200} className=' hover:motion-safe:animate-bounce' />
         </div>
         <div className=' text-white'>
-            <p>{item.name}</p>
-            <div>
-                <p>Shot by</p>
-                <p>From tap</p>
-            </div>
-            <div></div>
+            {/* <p>{item.name}</p> */}
         </div>
     </div>
   )
