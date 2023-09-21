@@ -18,7 +18,7 @@ import {
 import axios from "axios";
 
 export default function () {
-  const [searchQuery, setsearchQuery] = useState("Random");
+  const [searchQuery, setsearchQuery] = useState("Food");
 //   const [isLoading, setIsLoading] = useState(true);
   const [itemData, setItemData] = useState([]);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
