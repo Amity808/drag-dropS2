@@ -16,7 +16,7 @@ const Home = () => {
 
     // handle serach through the waste data through their name
   useEffect(() => {
-    if(user == null ) navigate("/signin")
+    if(user == null ) navigate("/signup")
   }, [user])
   
     // const handleSearch = (query) => {
