@@ -18,7 +18,7 @@ const Card = ({ item }) => {
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
         <div>
-            <img src={item.urls.full} width={200} height={200} className=' hover:motion-safe:animate-bounce' />
+            <img src={item.urls.full} width={200} height={200} className='' />
         </div>
         <div className=' text-white'>
             {/* <p>{item.name}</p> */}
