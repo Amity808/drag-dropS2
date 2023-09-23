@@ -21,6 +21,7 @@ export default function () {
   const [searchQuery, setsearchQuery] = useState("Food");
 //   const [isLoading, setIsLoading] = useState(true);
   const [itemData, setItemData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
   const onDragEnd = (event) => {
@@ -48,8 +49,8 @@ export default function () {
         `https://api.unsplash.com/search/photos?page=1&query=${searchQuery}&client_id=UrO6Tp7KIBg7H_n1tuCujE_JFo06R3COdYrYwsKbpBA`
       );
 
-      setTimeout(() => {
-      }, 3000);
+      // setTimeout(() => {
+      // }, 500);
 
       const returnData = data.results.map((image, index) => ({
         ...image,
