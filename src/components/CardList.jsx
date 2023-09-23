@@ -12,7 +12,7 @@ import {
 } from "@dnd-kit/core";
 import {
   SortableContext,
-  horizontalListSortingStrategy,
+  verticalListSortingStrategy,
   arrayMove,
 } from "@dnd-kit/sortable";
 import axios from "axios";
@@ -100,7 +100,7 @@ export default function () {
         >
           <SortableContext
             items={itemData}
-            strategy={horizontalListSortingStrategy}
+            strategy={verticalListSortingStrategy}
           >
             {itemData.map((item) => (
               <Card key={item.id} item={item} />
